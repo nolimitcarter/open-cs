@@ -18,7 +18,7 @@
 
 * In binary, with just two digits, we have the powers of two for each place value. 
   2^2 2^1 2^0
-   #   #   #
+  `#   #   #`
   * This is equivalent to: 
   4 2 1
   # # #
