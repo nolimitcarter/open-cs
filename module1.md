@@ -17,18 +17,23 @@
      1    2    3
 * `$ = #`
 * In binary, with just two digits, we have the powers of two for each place value. 
+  
   2^2 2^1 2^0 | 
    $   $   $
   * This is equivalent to: 
+  
   4 2 1 |  
   $ $ $
 * With all the light bulbs or switches off, we would still have a value of 0: 
+  
   4 2 1 |
   0 0 0
 * Now if we charge the binary value to, say, `0 1 1`, the decimal value would be 3, since we add the 2 and the 1: 
+  
   4 2 1 |
   0 1 1
 * If we had several more light bulbs, we might have a binary value of `110010`, which would have the equivalent decimal value of `50`: 
+  
   32 16  8  4  2  1 |
    1  1  0  0  1  0
   * Notice that `32 + 16 + 2 = 50`. 
