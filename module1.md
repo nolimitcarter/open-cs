@@ -15,13 +15,13 @@
     * Each place for a digit represents a power of ten, since there are ten possible digits for each place. The rightmost place is for 10^0, the middle one 10^1, and the leftmost place 10^2. 
     10^2 10^1 10^0
      1    2    3
-
+* `$ = #``
 * In binary, with just two digits, we have the powers of two for each place value. 
   2^2 2^1 2^0
-  `#   #   #`
+   $   $   $
   * This is equivalent to: 
   4 2 1
-  # # #
+  $ $ $
 * With all the light bulbs or switches off, we would still have a value of 0: 
   4 2 1
   0 0 0
