@@ -3,7 +3,7 @@ The Open Source Computer Science Degree (Python based)
 ## Computer Science Basics
 
 Courses | School | Duration | Workload/week | Prerequisites
-:-- | :--: | :--: | :--: | :--: | :--:
+:-- | :--: | :--: | :--: | :--:
 [Intro to Computer Science](https://www.edx.org/course/cs50s-introduction-computer-science-harvardx-cs50x) | Harvard | 10 weeks | 10-20 hours/week | none
 [Mathematical Thinking in Computer Science](https://click.linksynergy.com/deeplink?id=PtFMiHYfEVk&mid=40328&murl=https%3A%2F%2Fwww.coursera.org%2Flearn%2Fwhat-is-a-proof) | UC San Diego | 6 weeks | 2-5 hours/week | none
 
