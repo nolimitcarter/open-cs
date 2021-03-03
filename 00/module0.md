@@ -16,8 +16,10 @@
     * The `3` is in the ones column, the `2` is in the tens column, and the `1` is in the hundreds column. 
     * So 123 is 100*1 + 12*2 + 1*3 = 100 + 20 + 3 = 123
     * Each place for a digit represents a power of ten, since there are ten possible digits for each place. The rightmost place is for 10^0, the middle one 10^1, and the leftmost place 10^2. 
+    ```
     10^2 10^1 10^0 | 
      1    2    3
+    ```
 * `$ = #`
 * In binary, with just two digits, we have the powers of two for each place value. 
   
