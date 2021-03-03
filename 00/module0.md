@@ -95,6 +95,16 @@
 12 Else
 13   Quit
 ```
+* Within our pseudocode, we can pick out lines that start with verbs or actions which are called functions. 
+  * Examples: Pick up, Open to, Look at, Call, Open to, Open to, Quit
+* We also have branches that lead to different paths, like forks in the road, which are called conditions.
+  * Examples: If, Else if, Else if, Else
+* And the questions that decide where we go are called boolean expressions, which eventually result in a value of yes or no, or true or false.
+  * Examples: Person is on page, Person is earlier in book, Person is later in book
+* Lastly, we have words that create cycles, where can can repeat parts of our program called loops.
+  * Examples: Go back to line 3
+
+  ## NOT COVERING SCRATCH ;)
 
 ## Vocab Index
 
