@@ -11,16 +11,16 @@
   * linking
 * Preprocessing generally involves lines that start with a #, like #include. For example, `#include <cs50.h>` will tell us `clang` to look for that header file, since it contains content that we want to include in our program. Then, `clang` will essentially replace the contents of those header files into our program. 
   * For example... 
-  ```
-#include <cs50.h>
-#include <stdio.h>
+    ```
+    #include <cs50.h>
+    #include <stdio.h>
 
-int main(void)
-{
-    string name = get_string("What's your name? ");
-    printf("hello, %s\n", name);
-}
-  ```
+    int main(void)
+    {
+        string name = get_string("What's your name? ");
+        printf("hello, %s\n", name);
+    }
+    ```
 * ...will be preprocessed into: 
 ```
 ...
