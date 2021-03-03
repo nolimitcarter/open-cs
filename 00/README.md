@@ -16,3 +16,4 @@
 * Week 8: HTML, CSS, JS
 * Week 9: Flask
 * Week 10: Ethics
+
