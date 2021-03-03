@@ -80,6 +80,7 @@
 
 * We can write pseudocode, which is a representation of our algorithm in precise English. 
 * Example: 
+```
       1  Pick up phone book
       2  Open to middle of phone book 
       3  Look at page
@@ -93,7 +94,7 @@
       11   Go back to line 3
       12 Else
       13   Quit
-
+```
 
 ## Vocab Index
 
