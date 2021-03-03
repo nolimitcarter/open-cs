@@ -1,7 +1,6 @@
 # Week 1 notes of HarvardX's Introduction to Computer Science course
 
-* Start Date: 03/02/21
-* End Date: 03/
+Topic: Basics & Scratch
 
 ## Representing Numbers 
 

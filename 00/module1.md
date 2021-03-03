@@ -1,5 +1,7 @@
 # Week 2 notes of HarvardX's Introduction to Computer Science course
 
+# Topic: C
+
 ## C
 
 * We'll be dealing with C this lesson, take this hello world program for example: 
