@@ -68,7 +68,31 @@
 * Music can be represented with bits too, with mappings of numbers to notes and durations, or more complex mappings of bits to sound frequencies at each moment in time. 
 * File formats like JPEG and PNG, or Word or Excel documents, are also based on some standard for representing information with bits. 
 
+## Algorithms
 
+* Humans can follow algorithms too, such as recipes for cooking. When programming a computer, we need to be more precise with our instructions aren't ambiguous or misinterpreted. 
+* We might have an application on our phones that store our contacts, with their names and phone numbers sorted alphabetically. The old-school equivalent might be a phone book, a printed copy of names and phone numbers. 
+* Our input to the problem of finding someone's number would be the phone book and a name to look for. We might open the book and start from the first page, looking for a name one page at a time. This algorithm would be correct, since we will eventually find the name if it's in the book. 
+* We might flip through the book two pages at a time, but this algorithm will not be correct since we might skip the page with our name on it. We can fix this bug, or mistake, by going back one page at a time. This algorithm would be correct, since we eventually find the name if it's in the book. 
+* Another algorithm would be opening the phone book to the middle, decide whether our name will be in the left half or the right half of the book(because it is alphabetized), and reduce the size of our problem by half. We can repeat thus until we find our name, dividing the problem in half each time. With 1024 pages to start, we would only need 10 steps of dividing 
+
+## Pseudocode 
+
+* We can write pseudocode, which is a representation of our algorithm in precise English. 
+* Example: 
+    1    Pick up phone book
+    2    Open to middle of phone book 
+    3    Look at page
+    4    If person is on page
+        5    Call person
+    6    Else if person is earlier in book
+        7    Open to middle of left half of book
+        8    Go back to line 3
+    9    Else if person is later in book
+        10    Open to middle of right half of book
+        11    Go back to line 3
+    12 Else
+        13    Quit
 
 
 ## Vocab Index
