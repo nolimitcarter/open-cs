@@ -166,15 +166,98 @@ int main(void)
 ```
   * Now, instead of hard-coding, or manually specifying each element three times, we use a `for` loop and `i` as the index of each element in the array. 
 
+* Let's add a function to calculate the average: 
 
+```
+float average(int length, int array[])
+{
+  int sum = 0;
+  for (int i = 0; i < length; i++)
+  {
+    sum += array[i];
+  }
+  return sum / (float) length;
+}
+```
 
+* We'll pass in the length and an array of `int`s (which would be any size), and use another loop inside our helper function to add up the values into a `sum` variable. We use `(float)` to cast `length` into a float, so the result we get from dividing the two is also a float. 
 
+## Characters 
 
+  * We might print out a single character with a simple program: 
 
+```
+#include <stdio.sh>
 
+int main(void)
+{
+  char c = '#';
 
+  printf("%c\n");
+}
+  ```
+  * When we run this program, we get `#` printed in the terminal. 
+* Let's see what happens if we change our program to print `c` as an integer: 
 
+```
+#include <stdio.h>
 
+int main(void)
+{
+  char c = `#`; 
+  printf("%i\n", (int) c);
+}
+```
+
+  * When we run this program, we get `35` 
+  * In fact, we don't need to cast `c` to an `int` explicitly; the compiler can that for us in this case. 
+* A `char` is a single byte, so we can picture it as being stored in one box in the grid of memory above. 
+
+## Strings
+
+* We can print out a string, or some text, by creating a variable for each character and printing them out: 
+
+```
+#include <stdio.h>
+int main(void)
+{  
+  char c1 = 'H';
+  char c2 = 'I';
+  char c3 = '!';
+}
+```
+  * Here, we'll see `HI!` printed out. 
+* Now let's print out the integer of each character: 
+
+```
+#include <stdio.h> 
+
+int main(void)
+{
+  char c1 = 'H';
+  char c2 = 'I';
+  char c3 = '!';
+
+  printf("%i %i %i\n", c1, c2, c3);
+}
+```
+
+  * We'll see `72 73 33` printed out, and realized that these characters are stored in memory like above.
+**Strings** are actually just arrays of characters, and it turns out that a string ends with a special character, `\0`, or a byte with all bits set to 0. This character is called the *null character*, or NUL. So we would actually need four bytes to store our string with three characters: 
+  * `H I ! \0`
+
+* We can use a string as an array in our program, and print out the ASCII escape codes, or integer values, of each character in the string: 
+```
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+  string s = "HI!";
+  printf("%i %i %i %i\n", s[0], s[1], s[2], s[3]);
+}
+```
+  * and we might have expected to see `72 73 33 0` printed. 
 
 
 
