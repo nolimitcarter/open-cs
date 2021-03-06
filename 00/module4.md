@@ -63,6 +63,113 @@ int main(void)
 
 * A variable that stores an address is called a **pointer**, which we can think of as a value that "points" to a location in memory. In C, pointers can refer to specific types of values. 
 * We can use the `*` operator (in an unfortunately confusing way) to declare a variable that we want to be a pointer: 
+```
+#include <stdio.h>
+
+int main(void)
+{
+  int n = 50;
+  int *p = &n;
+  printf("%p\n", p);
+}
+```
+  * Here, we use `int *p` to declare a variable, `p`, that has a type of `*`, a pointer, to a value of type `int`, an integer. Then, we can print its value (an address, something like 0x12345678), or print the *value* at its location with `printf("%i\n", *p);`.
+  * Since `p` is a variable itself, it's somewhere in memory, and the value stored there is the address of `n`
+  * Modern computer systems are "64-bit", meaning that they use 64 bits to address memory, so a pointer will in reality be 8 bytes, twice as big as an integer of 4 bytes.
+* In the real world, we might have a mailbox labeled "p", among many mailboxes with addresses. Inside our mailbox, we can put a value like `0x123`, which is the address of some other mailbox `n`, with the address `0x123`.
+
+## Strings 
+
+* A variable declared with `string s = "HI!";` will be stored one character at a time in memory. And we can access each character with `s[0]`, s[1], s[2], and s[3]: 
+```
+H    I    !    \0
+s[0] s[1] s[2] s[3]
+```
+  * But it turns out that each character, since it's stored in memory, also has some unique addresses, and 1s is actually just a pointer with the address of the first character: 
+  ```
+  H     I     !     \0
+  0x123 0x124 0x125 0x126
+  ```
+  * And the variable `s` stores the address of the first character of the string : `s = 0x123`. The value `\0` is the only indicator of the end of the string.
+* Since the rest of the characters are in an array, back-to-back, we can start at the address in `s` and continue reading one character at a time from memory until we reach `\0`
+* Example: 
+```
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+  string s = "HI!";
+  printf("%s\n", s);
+}
+```
+
+## Pointer Arithmetic 
+
+* **Pointer arithmetic** is mathematical operations on addresses with pointers. 
+* We could print out each character in a string by using `char *` directly:
+  ```
+  #include <stdio.h>
+
+  int main(void)
+  {
+    char *s = "HI!";
+    printf("%c\n", *s);
+    printf("%c\n", *(s+1));
+    printf("%C\n", *(s+2));
+  }
+  ```
+  * `*s` goes to the address stored in `s`, and `*(s+1)` goes to the location in memory with an address one byte or higher, or the next character. `s[1]` is syntactic sugar for `*(s+1)`, equivalent in function but more human-friendly to read and write.
+* We can even try to go to addresses in memory that we shouldn't, like with `*(s+10000)`, and we run our program, we'll get a segmentation fault, or crash as a result of our program touching memory in a segment it shouldn't have. 
+
+
+## Compare and Copy
+
+* Lets compare to integers from the user: 
+
+```
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int i = get_int("i: ");
+    int j = get_int("j: ");
+
+    if (i == j)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
+}
+```
+  * We compile and run our program, and it works as we'd expect, with the same values of the two integers giving us "same" and "different" values.
+* When we try to compare two strings, we see that the same inputs are causing our program to print "different": 
+```
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
+
+    if (s == t)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
+}
+```
+  * Even when our inputs are the same, we see "different" printed. 
+  * Each "string" is a pointer, `char *`, to a different location in memory, where the first character of each string is stored. So even if the characters in the string are the same, this will always print "different". 
+
 
 
 
