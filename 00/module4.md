@@ -25,7 +25,8 @@ Topic: Memory
 ## Addresses 
 
 * We might create a value `n`, and print it out: 
-  ```
+
+```
   #include <stdio.h>
 
   int main(void)
@@ -33,11 +34,13 @@ Topic: Memory
     int n = 50;
     printf("%i\n", n);
   }
-  ```
+```
+
 * In our computer's memory, there are now 4 bytes somewhere that have the binary value of 50, labeled `n`
 * It turns out that with the billions of byte in memory, those bytes for the variable `n` starts at some location, which might look something like `0x12345678`. 
 * In C, we can actually see the address with the `&` operator, which means "get the address of this variable": 
-  ```
+
+```
   #include <stdio.h>
 
 int main(void)
@@ -45,11 +48,13 @@ int main(void)
     int n = 50;
     printf("%p\n", &n);
 }
-  ```
-  * `%p` is the format code for an address.
+```
+
+* `%p` is the format code for an address.
 * The `*` operator, or the dereference operator, lets us "go to" the location that a pointer is pointing to.
 * For example, we can print `*&n`, where we "go to" the address of `n`, and that will print out the value of `n`, `50`, since that's the value of the address of `n`: 
-  ```
+
+```
   #include <stdio.h>
 
 int main(void)
@@ -57,7 +62,7 @@ int main(void)
     int n = 50;
     printf("%i\n", *&n);
 }
-  ```
+```
 
 ## Pointers
 
