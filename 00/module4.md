@@ -203,6 +203,62 @@ int main(void)
 }
 ```
   * We declare two pointers to integers, `x` and `y`, but don't assign them values. We use `malloc` to allocate enough memory for an integer with `sizeof(int)`, and store it in `x`. `*x = 42` goes to the address `x` points to, and sets the location in memory to the value of 42.
+* We can print out garbage values, by declaring an array but not setting any of its values: 
+  ```
+  #include <stdio.h>
+
+int main(void)
+{
+    int scores[3];
+    for (int i = 0; i < 3; i++)
+    {
+        printf("%i\n", scores[i]);
+    }
+}
+  ```
+  * When we compile and run this program, we see various values printed. 
+
+## Swap
+
+  * Let's try to swap the values of two integers: 
+  ```
+  #include <stdio.h>
+
+void swap(int a, int b);
+
+int main(void)
+{
+    int x = 1;
+    int y = 2;
+
+    printf("x is %i, y is %i\n", x, y);
+    swap(x, y);
+    printf("x is %i, y is %i\n", x, y);
+}
+
+void swap(int a, int b)
+{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+  ```
+  * In the real world, if we had a red liquid in one glass, and a blue liquid in another, and we wanted to swap them, we would need a third glass to temporarily hold one of the liquids, perhaps the red glass. Then we can pour the blue liquid into the first glass, and finally the red liquid from the temporary glass into the second one. 
+  * In our `swap` function, we have a third variable to use as temporary storage space as well. We put `a` into `tmp`, and then set `a` to the value of `b`, and finally `b` can be changed to the original value of `a`, now in `tmp`.
+* If we tried to use that function in a program, we don't see any changes. It turns out that the `swap` function gets its own variables, `a` and `b` when they are passed in, that are copies of `x` and `y`, and so changing those values doesn't change `x` and `y` in the `main` function.
+
+## Memory layout 
+
+* Within out computer's memory, the different types of data that need to be stored for our program are organized into different sections:
+
+Machine Code |
+:-- |
+Globals 
+Heap(top) & Stack(bot)
+
+
+
+
 
 
 
