@@ -170,6 +170,49 @@ int main(void)
   * Even when our inputs are the same, we see "different" printed. 
   * Each "string" is a pointer, `char *`, to a different location in memory, where the first character of each string is stored. So even if the characters in the string are the same, this will always print "different". 
 
+* For example, our first string might be at address 0x123, our second might be at 0x456, and `s` will have the value of `0x123` pointing at that location, and `t` will have the value of `0x456`, pointing at another location. 
+```
+            s                 ||              t
+  H       I       !     \0    ||      H     I     !    \0
+0x123 | 0x124 | 0x25 | 0x126  ||  0x456 0x457 0x498 0x459
+```
+  * And `get_string`, this whole time, has been returning just a `char *`, or a pointer to the first character of a string from the user. Since we called `get_string` twice, we got two different pointers back.
+
+
+## Valgrind
+
+**valgrind** is a command-line tool that we can use to run our program and see if it has any **memory leaks**, or memory we've allocated without freeing, which might eventually cause our computer to run out of memory. 
+
+## Garbage values
+
+* Take a look at the following: 
+```
+int main(void)
+{
+  int *x;
+  int *y;
+
+  x = malloc(sizeof(int));
+
+  *x = 42;
+  *y = 13;
+
+  y = x;
+
+  *y = 13;
+}
+```
+  * We declare two pointers to integers, `x` and `y`, but don't assign them values. We use `malloc` to allocate enough memory for an integer with `sizeof(int)`, and store it in `x`. `*x = 42` goes to the address `x` points to, and sets the location in memory to the value of 42.
+
+
+
+
+
+
+
+
+
+
 
 
 
