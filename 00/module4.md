@@ -273,7 +273,54 @@ Heap(top) & Stack(bot)
   * The **stack** section is used by functions in our program as they are called, and grows upwards. For example, our `main` function is at the very bottom of the stack and has the local variables `x` and `y`. The `swap` function, when it's called, has its own area of memory that's on top of `main`', with the local variables `a`,`b`, and `tmp`.
 * Once the function `swap` returns, the memory it was using is freed for the next function call. `x` and `y` are arguments, so they're copied as `a` and `b` for `swap`, so we don't see our changes back in `main`.
 
+## Graphics
 
+* We can read binary and map them to pixels and colors, to display images and videos. With a finite number of bits in an images files, though, we can only zoom in so far before we start seeing individual pixels. 
+  * With artificial intelligence and machine learning, however, we can use algorithms that can generate additional details that weren't there before, by guessing based on other data. 
+
+* This program will open a file and tell us if it's a JPEG file: 
+```
+#include <stdint.h>
+#include <stdio.h>
+
+typedef uint8_t BYTE;
+
+int main(int argc, char *argv[])
+{
+    // Check usage
+    if (argc != 2)
+    {
+        return 1;
+    }
+
+    // Open file
+    FILE *file = fopen(argv[1], "r");
+    if (!file)
+    {
+        return 1;
+    }
+
+    // Read first three bytes
+    BYTE bytes[3];
+    fread(bytes, sizeof(BYTE), 3, file);
+
+    // Check first three bytes
+    if (bytes[0] == 0xff && bytes[1] == 0xd8 && bytes[2] == 0xff)
+    {
+        printf("Maybe\n");
+    }
+    else
+    {
+        printf("No\n");
+    }
+
+    // Close file
+    fclose(file);
+}
+```
+  * First we define a `byte` as 8 bits, so we can refer to a byte as a type more easily C.
+  * Then, we try to open a file (checking that we indeed get a non-NULL file back), and read the first three bytes from the file with `fread`, into a buffer called `bytes`.
+  * We can compare the first three bytes (in hexadecimal) to the three bytes required to begin a JPEG file. If they're the same, then our file is likely to be a JPEG file (though, other types of files may still begin with those bytes.) But if they're not the same, we know it's definitely not a JPEG file. 
 
 
 
