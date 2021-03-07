@@ -267,6 +267,11 @@ Machine Code |
 Globals 
 Heap(top) & Stack(bot)
 
+  * The **machine code** section is our compiled program's binary code. When we run our program, that code is loaded into the "top" of memory. 
+  * Just below, or in the next part of memory, are **global variables** we declare in our program. 
+  * The **heap** section is an empty area from where `malloc` can get free memory for our program to use. As well call `malloc`, we start allocating memory from the top down. 
+  * The **stack** section is used by functions in our program as they are called, and grows upwards. For example, our `main` function is at the very bottom of the stack and has the local variables `x` and `y`. The `swap` function, when it's called, has its own area of memory that's on top of `main`', with the local variables `a`,`b`, and `tmp`.
+* Once the function `swap` returns, the memory it was using is freed for the next function call. `x` and `y` are arguments, so they're copied as `a` and `b` for `swap`, so we don't see our changes back in `main`.
 
 
 
