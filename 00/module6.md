@@ -92,8 +92,59 @@ main()
 
   * (takes in parameter `n`, and passes it to `range`)
 
+## Mario 
 
+  * We can print out a row of question marks on the screen: 
   
+  ```
+  for i in range(4):
+    print("?", end="")
+  print()
+  ``` 
+  
+  * Here, we don't want the automatic new line, so we can pass a **named argument**, also known as a keyword argument, to the `print` function, which specifies the value for a specific parameter. 
+    * **Positional arguments**, are where parameters are set based on their position in the function call. 
+  * We also say `end=""` to specify that nothing should be printed at the end of our string. `end` is also an **optional argument**, one we don't need to pass in, with a default value of `\n`, which is why `print` usually adds a new line for us.
+* We are also able to multiply strings to get the same effect: `print("?" * 4)`.
+
+* We can also implement nested loops:
+  
+  ```
+  for i in range(3):
+    for j in range(3):
+      print("#", end="")
+    print()
+  ```
+
+## Overflow, imprecision 
+
+  * In Python, trying to cause an integer overflow actually won't work: 
+  
+  ```
+  i = 1
+  while True:
+    print(i)
+    i *= 2
+  ```
+
+  * Once run, we see larger and larger #s being printed. Python automatically uses more and more memory to store numbers for us inline C, where integers are fixed to a certain number of bytes. 
+* Floating-point imprecision, too, still exists, but can be prevented by libraries that can represent decimal values with as many bites as a re needed. 
+
+## Lists, Strings
+
+* We can make a list: 
+
+```
+scores = [72, 73, 33]
+
+print("Average: " + str(sum(scores) / len(scores)))
+```
+  * We can use `sum`, a function built into Python, to add up the values in our list, and divide it by the number of scores, using the `len` function to get the length of the list. Then, we cast the float to a string before we can concatenate and print it. 
+  * We can even add the entire express into a formatted string for the same effect: 
+  `print(f"Average: {sum(scores) / len(scores)}")`
+
+
+
 
 
 
