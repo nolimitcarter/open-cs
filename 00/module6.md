@@ -143,6 +143,139 @@ print("Average: " + str(sum(scores) / len(scores)))
   * We can even add the entire express into a formatted string for the same effect: 
   `print(f"Average: {sum(scores) / len(scores)}")`
 
+## Algorithms
+
+* We can implement linear search by just checking each element in a list:
+  
+  ```
+  import sys
+
+  numbers = [4, 6, 8, 2, 7, 5, 0]
+
+  if 0 in numbers: 
+    print("Found")
+    sys.exit(0)
+  
+  print("Not Found")
+  sys.exit(1)
+  ```
+
+  * With `if 0 in numbers:`, we're asking Python to check the list for us.
+* A list of strings, too, can be searched with: 
+
+```
+names = ["Bill", "Charlie", "Fred", "Joe", "Ron"]
+
+if "Ron" in names:
+  print("Found")
+else: 
+  print("Not found")
+```
+
+* If we have a dictionary, a set of key-value pairs, we can also check for a particular key, and look at the value stored for it.
+* Swapping two variables can also be done simply by assigning both values at the same time: 
+
+```
+x = 1
+y = 2
+
+print(f"x is {x}, y is {y}")
+x, y = y, x
+print(f"x is {x}, y is {y}")
+```
+
+  * In Python, we don't have access to pointers, which protects us from making mistakes with memory.
+
+## Files 
+
+* Opening a CSV file:
+
+```
+import csv
+
+from cs50 import get_string
+
+file = open("phonebook.csv", "a")
+
+name = get_string("Name: ")
+number = get_string("Number: ")
+
+writer = csv.writer(file)
+writer.writerow([name, number])
+
+file.close()
+```
+
+  * It turns out that Python also has a `csv` library that helps us work with CSV files, so after we open the file for appending, we can call `csv.writer` to create a `writer` from the file, which gives additional functionality, like `writer.writerow` to write a list as a row.
+* We can use the `with` keyword, which will close the file for us after we're finished: 
+
+```
+...
+with open("phonebook.csv", "a") as file:
+    writer = csv.writer(file)
+    writer.writerow((name, number))
+```
+
+* We can open another CSV file, tallying the number of times a value appears: 
+
+```
+import csv
+
+houses = {
+    "Gryffindor": 0,
+    "Hufflepuff": 0,
+    "Ravenclaw": 0,
+    "Slytherin": 0
+}
+
+with open("Sorting Hat (Responses) - Form Responses 1.csv", "r") as file:
+    reader = csv.reader(file)
+    next(reader)
+    for row in reader:
+        house = row[1]
+        houses[house] += 1
+
+for house in houses:
+    print(f"{house}: {houses[house]}")
+```
+
+  * We use the `reader` function from the `csv` library, skip the header row with `next(reader)`, and then iterate over each of the rest of the rows. 
+  * The second item in each row, `row[1]`, is the string of a house, so we can use that to access the value stored in `houses` for that key, and add one to it. 
+  * Finally, we'll print out the count for each house.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
